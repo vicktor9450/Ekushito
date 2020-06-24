@@ -1,0 +1,6 @@
+framework module Pods_Ekushito {
+  umbrella header "Pods-Ekushito-umbrella.h"
+
+  export *
+  module * { export * }
+}

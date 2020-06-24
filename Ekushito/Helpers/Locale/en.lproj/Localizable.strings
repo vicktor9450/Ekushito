@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  Ekushito
+
+  Created by minato on 2020/06/22.
+  Copyright © 2020 minato. All rights reserved.
+    
+  This is for English Locale
+*/
+
+//PaperView.swift
+"Paper Management" = "用紙管理";
+
+//AddingPaperSheet.swift
+    //paperTypes
+"yupo80MD8GB" = "ユポ80MDN8GB";
+"kyasutoYellowSeparator" = "キャスト黄セパ";
+"kyasutoBlueGura" = "キャスト青グラ";
+"artYellowSeparator" = "アート黄セパ";
+"artTeiSeiYellowSeparator" = "アート訂正黄セパ";
+"joushitsu" = "上質";
+
+    //isSlitted
+"ipponyaiba" = "一本刃";
+
+    //Form
+"Paper Details" = "用紙仕様";
+"Paper Type" = "用紙のタイプ";
+"Paper Finish" = "用紙仕上げ";
+"Paper Width" = "幅";
+"Roll" = "巻";
+
+    //Saving
+"Saving" = "保存";
+"Adding Paper" = "用紙追加";
