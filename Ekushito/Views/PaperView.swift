@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PaperView: View {
-
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Paper.entity(),
                   sortDescriptors: [
@@ -24,17 +24,18 @@ struct PaperView: View {
             NavigationView {
                 List {
                     ForEach(papers, id: \.self) { paper in
-//                        NavigationLink(destination: PaperDetail) { }
-                        HStack {
-                            Text(paper.type)
-                                .font(.body)
-                            Text("\(paper.width)mm")
-                                .font(.caption)
-                            Text("\(paper.quantity)m x\(paper.numOfRoll)")
-                                .font(.caption)
-                            Text("\(paper.finish)")
-                            Spacer()
-                            Text(paper.importDate.toLocalString())
+                        NavigationLink(destination: PaperDetail(paper: paper)) {
+                            HStack {
+                                Text(paper.type)
+                                    .font(.body)
+                                Text("\(paper.width)mm")
+                                    .font(.caption)
+                                Text("\(paper.quantity)m x\(paper.numOfRoll)")
+                                    .font(.caption)
+                                Text("\(paper.finish)")
+                                Spacer()
+                                Text(paper.importDate.toLocalString())
+                            }
                         }
                     }
                     .onDelete(perform: cellDelete)
