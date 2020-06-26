@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1419A8E424A5AC53003AD5FE /* PaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1419A8E324A5AC53003AD5FE /* PaperView.swift */; };
 		1431180C249FFEC40089CAAE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1431180E249FFEC40089CAAE /* Localizable.strings */; };
 		14311813249FFF160089CAAE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14311812249FFF160089CAAE /* StringExtension.swift */; };
 		1431181724A00E910089CAAE /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1431181624A00E910089CAAE /* DatePicker.swift */; };
-		1448ED34249F89140063EA52 /* PaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1448ED33249F89140063EA52 /* PaperView.swift */; };
 		1448ED36249F891B0063EA52 /* InkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1448ED35249F891B0063EA52 /* InkView.swift */; };
 		1448ED38249F98280063EA52 /* AddingPaperSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1448ED37249F98280063EA52 /* AddingPaperSheet.swift */; };
 		147B907224A37D3300BE93E9 /* Paper+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147B907024A37D3300BE93E9 /* Paper+CoreDataClass.swift */; };
@@ -28,12 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1419A8E324A5AC53003AD5FE /* PaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperView.swift; sourceTree = "<group>"; };
 		14311809249FFE4E0089CAAE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1431180D249FFEC40089CAAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1431180F249FFECE0089CAAE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14311812249FFF160089CAAE /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		1431181624A00E910089CAAE /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
-		1448ED33249F89140063EA52 /* PaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperView.swift; sourceTree = "<group>"; };
 		1448ED35249F891B0063EA52 /* InkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkView.swift; sourceTree = "<group>"; };
 		1448ED37249F98280063EA52 /* AddingPaperSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingPaperSheet.swift; sourceTree = "<group>"; };
 		147B907024A37D3300BE93E9 /* Paper+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Paper+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -105,9 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				1448ED35249F891B0063EA52 /* InkView.swift */,
-				1448ED33249F89140063EA52 /* PaperView.swift */,
 				1448ED37249F98280063EA52 /* AddingPaperSheet.swift */,
 				14D40C0024A3F51800B5A41D /* PaperDetail.swift */,
+				1419A8E324A5AC53003AD5FE /* PaperView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,10 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				14311810249FFEEA0089CAAE /* Helpers */,
+				149B596B249EFA7C009A4A72 /* ContentView.swift */,
 				1448ED32249F87E80063EA52 /* Views */,
 				149B5964249EFA7C009A4A72 /* AppDelegate.swift */,
 				149B5966249EFA7C009A4A72 /* SceneDelegate.swift */,
-				149B596B249EFA7C009A4A72 /* ContentView.swift */,
 				147B907024A37D3300BE93E9 /* Paper+CoreDataClass.swift */,
 				147B907124A37D3300BE93E9 /* Paper+CoreDataProperties.swift */,
 				149B596D249EFA7D009A4A72 /* Assets.xcassets */,
@@ -291,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1448ED34249F89140063EA52 /* PaperView.swift in Sources */,
 				14311813249FFF160089CAAE /* StringExtension.swift in Sources */,
 				1448ED38249F98280063EA52 /* AddingPaperSheet.swift in Sources */,
 				147B907324A37D3300BE93E9 /* Paper+CoreDataProperties.swift in Sources */,
@@ -299,6 +298,7 @@
 				149B5967249EFA7C009A4A72 /* SceneDelegate.swift in Sources */,
 				149B596C249EFA7C009A4A72 /* ContentView.swift in Sources */,
 				14BD5C0824A3889800CEDFB1 /* Date.swift in Sources */,
+				1419A8E424A5AC53003AD5FE /* PaperView.swift in Sources */,
 				147B907224A37D3300BE93E9 /* Paper+CoreDataClass.swift in Sources */,
 				14D40C0124A3F51800B5A41D /* PaperDetail.swift in Sources */,
 				1431181724A00E910089CAAE /* DatePicker.swift in Sources */,
