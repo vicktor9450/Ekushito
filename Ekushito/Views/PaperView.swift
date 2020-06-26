@@ -1,45 +1,71 @@
 //
-//  PaperView.swift
+//  demoGroupCoreData.swift
 //  Ekushito
 //
-//  Created by minato on 2020/06/21.
+//  Created by minato on 2020/06/26.
 //  Copyright © 2020 minato. All rights reserved.
 //
 
 import SwiftUI
-
 struct PaperView: View {
     
+    //CoreData
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(entity: Paper.entity(),
-                  sortDescriptors: [
-                    NSSortDescriptor(keyPath: \Paper.width, ascending: true),
-                    NSSortDescriptor(keyPath: \Paper.type, ascending: true)])
-    var papers: FetchedResults<Paper>
+    @FetchRequest(
+        entity: Paper.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Paper.importDate, ascending: true)
+        ]
+    ) var papers: FetchedResults<Paper>
     
+    //Supporting Sorting FetchRequestResult
+    func update(_ result : FetchedResults<Paper>)-> [[Paper]]{
+        return  Dictionary(grouping: result){ (element : Paper)  in
+            dateFormatter.string(from: element.importDate)
+        }.values.sorted() { $0[0].importDate < $1[0].importDate}
+    }
+    //Supporting delete cell
+    func removeCell(at offsets: IndexSet) {
+        for index in offsets {
+            let paper = papers[index]
+            managedObjectContext.delete(paper)
+        }
+    }
+    
+    //Supporting format Date
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short //Modify to show other kindda date show in dateGroup
+        return formatter
+    }
+    
+    //Supporing ShowModalView: AddingSheet
     @State private var showAddingSheet: Bool = false
-    
+
     var body: some View {
-        VStack {//List and Nav View
+        VStack {
             NavigationView {
                 List {
-                    ForEach(papers, id: \.self) { paper in
-                        NavigationLink(destination: PaperDetail(paper: paper)) {
-                            HStack {
-                                Text(paper.type)
-                                    .font(.body)
-                                Text("\(paper.width)mm")
-                                    .font(.caption)
-                                Text("\(paper.quantity)m x\(paper.numOfRoll)")
-                                    .font(.caption)
-                                Text("\(paper.finish)")
-                                Spacer()
-                                Text(paper.importDate.toLocalString())
+                    ForEach(update(papers), id: \.self) { (section: [Paper]) in
+                        Section(header: Text( self.dateFormatter.string(from: section[0].importDate))) {
+                            ForEach(section, id: \.self) { paper in
+                                HStack {
+                                    Text(paper.type)
+                                        .font(.body)
+                                    Text("\(paper.width)mm")
+                                        .font(.caption)
+                                    Text("\(paper.quantity)m x\(paper.numOfRoll)")
+                                        .font(.caption)
+                                    Text("\(paper.finish)")
+                                }
                             }
+                            .onDelete(perform: self.removeCell)
+                            
                         }
                     }
-                    .onDelete(perform: cellDelete)
                 }
+                .id(papers.count)   //?
+                .navigationBarTitle("hello")    //Navigation Title
                 .sheet(isPresented: $showAddingSheet) {
                     AddingPaperSheet().environment(\.managedObjectContext, self.managedObjectContext)
                 }
@@ -54,17 +80,13 @@ struct PaperView: View {
                                 .resizable()
                                 .frame(width: 32, height: 32, alignment: .center)
                         }
-                )}
-        }
-    }
-    
-    func cellDelete(at offsets: IndexSet) {
-        for index in offsets {
-            let paper = papers[index]
-            managedObjectContext.delete(paper)
+                )
+            }
         }
     }
 }
+
+
 struct PaperView_Previews: PreviewProvider {
     static var previews: some View {
         PaperView()
